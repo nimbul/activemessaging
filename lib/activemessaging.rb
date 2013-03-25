@@ -2,7 +2,6 @@ require 'logger'
 require 'active_support/all'
 require 'ostruct'
 
-require 'logger'
 require 'activemessaging/gateway'
 require 'activemessaging/threaded_poller'
 require 'activemessaging/adapter'
@@ -18,7 +17,6 @@ Dir[File.join(ROOT, 'lib', 'activemessaging', 'adapters', '*.rb')].each do |a|
     adapter_name = File.basename(a, ".rb")
     require 'activemessaging/adapters/' + adapter_name
   rescue RuntimeError, LoadError => e
-    logger.warn "ActiveMessaging: adapter #{adapter_name} not loaded: #{ e.message }"
   end
 end
 
