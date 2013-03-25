@@ -12,6 +12,7 @@ require 'activemessaging/filter'
 require 'activemessaging/trace_filter'
 
 # load all under the adapters dir 
+ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 Dir[File.join(ROOT, 'lib', 'activemessaging', 'adapters', '*.rb')].each do |a| 
   begin
     adapter_name = File.basename(a, ".rb")
